@@ -39,7 +39,7 @@ document.querySelector('form').addEventListener('submit', async (event) => {
 
     try {
         // Faz a requisição HTTP POST para o backend em Python
-        const resposta = await fetch('http://127.0.0.1:5000/cadastro', {
+        const resposta = await fetch('http://127.0.0.1:5501/cadastro', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

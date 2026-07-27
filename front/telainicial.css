@@ -1,0 +1,26 @@
+body{
+    background-color: rgb(251, 224, 228);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 30px solid #E8FCF1;
+    min-height: 100vh;
+    align-items: center;
+}
+
+.navegacao{
+    background-color: #FFCFD8;
+    position: fixed;
+    height: 70px;
+    width: calc(100vw - 75px);
+    top: 0px;
+    left: 30px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px; 
+    padding-right: 20px; /* CORREÇÃO: Evita que o botão colse na borda direita */
+    box-sizing: border-box;
+    z-index: 1000;
+    justify-content: space-between;
+}

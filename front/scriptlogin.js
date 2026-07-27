@@ -27,3 +27,44 @@ document.addEventListener("DOMContentLoaded", () => {
     overlay.addEventListener('click', closeSidebar);
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    const formLogin= document.querySelector('form');
+
+    if(formLogin){
+        formLogin.addEventListener('submit', async (event) => {
+            event.preventDefault(); //impedir recarregamento
+
+            //pegar valores que user digita
+
+            const email = document.getElementById('email').value;
+            const senha = document.getElementById('senha').value;
+
+            try{
+                const resposta = await fetch('http://127.0.0.1:5501/login', {
+                    method: 'POST',
+                    headers:{
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({email, senha})
+                });
+                const resultado = await resposta.json();
+
+                if (resposta.ok){
+                    console.log(resultado.mensage);
+
+                    //guardar id e nome do usuario p saber qm ta usando a pag
+                    localStorage.setItem('usuarioLogado', JSON.stringify(resultado.usuario));
+
+                    //redireciona para a tela do site
+                    window.location.href = "telainicial.html";
+                }else{
+                    alert(resultado.erro);
+                }
+            } catch (erro){
+                console.error("erro ao conectar o servidor", erro);
+                alert("Não foi possível conectar ao servidor backend.")
+            }
+        });
+    }
+});
+
