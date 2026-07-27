@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+   <link rel="stylesheet" href="styleLogin.css">
+    <link rel="icon" href="imagens/e8f17830a5f55201718fa320a036ae06-removebg-preview.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <script src="scriptlogin.js"></script>
+   
+    <nav class="navegacao">
+        <ul class="links">
+           <li><a  class="link-item" href="index.html" >Pagina Inicial</a></li>
+           <li><a   class="link-item" href="cadastro.html" >Cadastrar</a></li>
+        </ul>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+    <div class="overlay" id="overlay"></div>
+    <div class="sidebar" id="sidebar">
+        <button class="close-btn" id="closeBtn">&times;</button>
+        <ul class="sidebar-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="cadastro.html">Cadastrar</a></li>
+        </ul>
+    </div>
+    
+    <div class="quadradao">
+        <div class="loginParte">
+            <h2>Entrar</h2>
+            <form>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email_user">
+                </div>
+
+                <div class="input-group">
+                    <label for="senha">Senha</label>
+                    <input type="password" name="password_user">
+                </div>
+
+                <button type="submit" class="btn-envia">Logar</button>
+            </form>
+        </div>
+    
+    </div>
+    
+</body>
+</html>

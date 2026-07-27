@@ -1,0 +1,202 @@
+body{
+    background-color: rgb(251, 224, 228);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 30px solid #E8FCF1;
+    min-height: 100vh;
+    align-items: center;
+}
+
+.navegacao{
+    background-color: #FFCFD8;
+    position: fixed;
+    height: 70px;
+    width: calc(100vw - 75px);
+    top: 0px;
+    left: 30px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px; 
+    padding-right: 20px; /* CORREÇÃO: Evita que o botão colse na borda direita */
+    box-sizing: border-box;
+    z-index: 1000;
+    justify-content: space-between;
+}
+
+.quadradao{
+    background-color: #FFB1BF;
+    width: 50%;
+    min-height: calc(100vh - 60px); /*ocupa o restante d tela menos a borda e navbar*/
+    margin-left: 25%;
+    /*espaçamento para empurrar conteudo para abaixo da navbar*/
+    padding-top: 100px; 
+    padding-bottom: 40px;
+    box-sizing: border-box;
+
+    /*centralizar as caixinhas de login*/
+    display: flex;
+    justify-content: center; 
+    align-items: flex-start; /* Alinha o card no topo do container após o padding */
+}
+/*caixinha de login, estilizações*/
+.loginParte{
+    background-color: rgb(182, 246, 189);
+    color: rgb(26, 100, 44);
+    padding: 30px;
+    box-shadow: 0 4px 15px rgb(55, 149, 41);
+    width: 100%;
+    max-width: 350px;
+    
+}
+.loginParte h2{
+    text-align: center;
+    color: #368F43;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+
+}
+.input-group label{
+    margin-bottom: 6px;
+    color:#d07686;
+    font-size: 14px;
+    font-weight: 500;
+}
+.input-group input {
+    padding: 12px;
+    border: 2px solid #FFCFD8;
+    border-radius: 6px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s;
+    display: flex;
+   margin-bottom: 16px;
+}
+/*efeito quando usuario for clicar no campo de texto*/
+.input-group input:focus{
+    border-color: #368F43;
+}
+.btn-envia{
+    width: 100px;
+    padding: 12px;
+    background-color: #368F43;
+    color: #E8FCF1;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 19px;
+}
+.btn-envia:hover{
+    background-color:#2b7335;
+}
+
+.links{
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.links a{
+   text-decoration: none;
+   color: #368F43;
+   font-family: 'Courier New', Courier, monospace;
+   transition: color 0.2s;
+   font-size: 23px;
+}
+
+.links a:hover{
+    color: palevioletred;
+}
+
+/* Menu 3 pontinhos */
+.menu-toggle {
+    display: none; /* Oculto por padrão no computador */
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 6px;
+    height: 6px;
+    background-color: #368F43; /* CORREÇÃO: Mudado para verde para contrastar com o fundo rosa */
+    border-radius: 50%;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -290px; /* Escondido inicialmente */
+    width: 250px;
+    height: 100%;
+    background-color: #7bd86cae;
+    z-index: 1001;
+    transition: right 0.3s ease;
+    padding: 20px;
+    box-shadow: -2px 0 10px rgba(72, 166, 85, 0.3);
+}
+
+.sidebar.active {
+    right: 0; /* Mostra a sidebar deslizando */
+}
+
+.sidebar .close-btn {
+    background: none;
+    border: none;
+    color: rgb(26, 94, 30);
+    font-size: 2rem;
+    cursor: pointer;
+    float: right;
+}
+
+.sidebar-links {
+    list-style: none;
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sidebar-links a {
+    color: rgb(147, 43, 91);
+    text-decoration: none;
+    font-size: 1.1rem;
+    display: block;
+    padding: 10px 0;
+    border-bottom: 1px solid #0d2c14;
+}
+
+/* Fundo escuro quando a sidebar abre */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(167, 67, 142, 0.5);
+    z-index: 999;
+    display: none;
+}
+
+.overlay.active {
+    display: block;
+}
+
+/* --- Media Query para Celulares --- */
+@media (max-width: 768px) {
+    .links {
+        display: none; /* CORREÇÃO: Mudado de .nav-links para .links para esconder com sucesso */
+    }
+
+    .menu-toggle {
+        display: flex; /* Mostra os três pontinhos no celular */
+    }
+}

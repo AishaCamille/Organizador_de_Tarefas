@@ -1,0 +1,58 @@
+body{
+    background-color: rgb(251, 224, 228);
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.maior{
+    display: flex;
+    justify-content: space-between;/* Empurra o texto para a esquerda extrema e o quadrado para a direita extrema */
+    align-items: center; /*conteudo na vertical*/
+    height: 100vh; /*container ocupar a altura inteira da tela*/
+    padding: 0 5%; /* Cria uma margem interna nas laterais para o conteúdo não colar na borda da tela */
+}
+.texto1{
+    display: flex;
+    flex-direction: column; /* Alinha o h1, h2 e a div de botões um abaixo do outro */
+    gap: 20px; /* Espaçamento vertical perfeito entre os elementos */
+    max-width: 45%; /* Garante que o texto não invada o espaço do quadrado verde */
+    color: #D96077;
+}
+.texto1 h1{
+    margin:0;
+    font-size: 80px;
+    font-family:'Fredoka', sans-serif;
+    font-weight: 500;
+}
+.texto1 h2{
+    margin: 0;
+   font-size: 24px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    line-height: 1.4; /* Melhora o espaçamento entre as linhas da frase */
+}
+
+.quadrado{
+    width: 45%;
+    height: 550px;
+    background-color: rgb(232, 252, 241);
+    flex-shrink: 0; /*Impede o quadrado de esmagar se a tela diminuir */
+}
+.botoescontainer{
+    display: flex;
+    gap: 16px;
+    margin-top: 10px;
+}
+button{
+    background-color: #FFB1BF;
+    border-radius: 8cm;
+    border: none;
+    color: #368F43;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 16;
+    width: 90px;
+    height: 30px;
+}
