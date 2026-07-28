@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar com Transição</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav>
+        <h2>MeuSite</h2>
+
+        <ul>
+            <li><a href="#" onclick="mudarPagina(0)">Home</a></li>
+            <li><a href="#" onclick="mudarPagina(1)">Sobre</a></li>
+            <li><a href="#" onclick="mudarPagina(2)">Serviços</a></li>
+            <li><a href="#" onclick="mudarPagina(3)">Contato</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <div class="container">
+
+            <section class="pagina home">
+                <h1>Home</h1>
+                <p>Bem-vindo ao site.</p>
+            </section>
+
+            <section class="pagina sobre">
+                <h1>Sobre</h1>
+                <p>Essa é a página Sobre.</p>
+            </section>
+
+            <section class="pagina servicos">
+                <h1>Serviços</h1>
+                <p>Conheça nossos serviços.</p>
+            </section>
+
+            <section class="pagina contato">
+                <h1>Contato</h1>
+                <p>Entre em contato conosco.</p>
+            </section>
+
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

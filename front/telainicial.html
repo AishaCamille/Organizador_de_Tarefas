@@ -1,31 +1,93 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tela Inicial</title>
-   <link rel="stylesheet" href="telainicial.css">
-    <link rel="icon" href="imagens/e8f17830a5f55201718fa320a036ae06-removebg-preview.png" type="image/x-icon">
+    <title>Organize-se!</title>
+        <link rel="icon" href="imagens/e8f17830a5f55201718fa320a036ae06-removebg-preview.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="telainicial.css">
 </head>
-<body>
-     <nav class="navegacao">
-        <ul class="links">
-           <li><a  class="link-item" href="#" >Tarefas Concluidas</a></li>
-           <li><a   class="link-item" href="#" >Topicos favoritos</a></li>
-           <li><a   class="link-item" href="#" >Prioridade</a></li>
-           <li><a   class="link-item" href="#" >Estatisticas</a></li>
-           <li><a   class="link-item" href="#" >Tarefas a fazer</a></li>
-           <li><a   class="link-item" href="#" >Perfil</a></li>
-        </ul>
 
-        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+<body>
+
+    <nav>
+        
+        <button class="nav_arrow left" id="arrowLeft">&lt;</button>
+        
+        <div class="nav-wrapper" id="navWrapper">
+            <ul>
+                <li><a href="#" onclick="mudarPagina(0)">Tarefas</a></li>
+                <li><a href="#" onclick="mudarPagina(1)">Tarefas Concluídas</a></li>
+                <li><a href="#" onclick="mudarPagina(2)">Prioridades</a></li>
+                <li><a href="#" onclick="mudarPagina(3)">Tempo nas tarefas</a></li>
+                <li><a href="#" onclick="mudarPagina(4)">Ranking</a></li>
+                <li><a href="#" onclick="mudarPagina(5)">Pomodoro</a></li>
+                <li><a href="#" onclick="mudarPagina(6)">Perfil</a></li>
+            </ul>
+        </div>
+
+        <button class="nav_arrow right" id="arrowRight">&gt;</button>
+
     </nav>
+
+    <main>
+
+        <div class="container">
+            
+            <section class="pagina Tarefa"> <!--0-->
+                <h3 class="titulotarefas">Aqui estão estão suas tarefas Pendentes!</h3>
+                <div class="TarefasAdc">
+                    <div class="conteudotarefas">
+                    <label class="textolabel" for="tarefa">Tarefas para hoje?</label>
+                    <input type="text" class="tarefa" id="tarefa">
+                    
+                    </div>
+                </div>
+                <div class="tarefaspendentes">
+                    <!--terefas adc recentemente, colocar nivel de prioridade e se ja foi 
+                    concluida.
+                    adc tb animação de riscar a tarefa quando for completada-->
+                    <ul id="listaDeTarefas"></ul>
+                </div>
+
+            </section>
+
+            <section class="pagina TarefasConcluidas"> <!--1-->
+                
+            </section>
+
+            <section class="pagina Prioridades"> <!--2-->
+                
+            </section>
+
+            <section class="pagina TempoTarefas"> <!--3-->
+                
+            </section>
+
+            <section class="pagina Ranking"> <!--4-->
+                
+            </section>
+            
+            <section class="pagina Pomodoro"> <!--5-->
+              
+            </section>
+
+            <section class="pagina Perfil"> <!--6-->
+                
+            </section>
+            
+
+
+        </div>
+
+    </main>
+
+    <script src="telainicial.js"></script>
+
 </body>
+
 </html>
