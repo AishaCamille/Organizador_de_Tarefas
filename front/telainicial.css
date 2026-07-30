@@ -84,7 +84,7 @@ nav a:hover{
     z-index: 105;
     transition: transform 0.2s, color 0.2s;
     
-    /* SOLUÇÃO AQUI: Garante que a seta não seja esmagada ou suma em telas menores */
+    /* Garante que a seta não seja esmagada ou suma em telas menores */
     flex-shrink: 0; 
     width: 40px; 
     display: flex;
@@ -140,9 +140,7 @@ main{
     
 }
 
-.TarefasConcluidas{
-    background:#7B3FE4;
-}
+
 
 .Prioridades{
     background:#18A558;
@@ -194,55 +192,4 @@ input{
     font-size: 20px;
     color: #78225c;
     font-weight: 700;
-}
-.conteudotarefas{
-    margin-top: 25px;
-    margin-left: 20px;
-}
-
-.titulotarefas{
-    margin-top: 30px;
-    margin-left: 30px;
-}
-/* Container da lista */
-.tarefaspendentes {
-    width: 100%;
-    max-width: 500px;
-    margin-top: 30px;
-    margin-left: 40px;
-}
-
-.tarefaspendentes ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-/* Cada linha de tarefa individual */
-.item-tarefa {
-    background: rgba(255, 255, 255, 0.52);
-    padding: 15px 20px;
-    border-radius: 8px;
-    font-size: 18px;
-    color: rgb(207, 68, 124);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-align: left;
-    font-family: Arial, sans-serif;
-    border-left: 5px solid #fff;
-}
-
-.item-tarefa:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: translateX(5px);
-}
-
-.tarefaspendentes ul li.item-tarefa.concluida {
-    text-decoration: line-through !important; /* O !important garante que o risco aconteça */
-    opacity: 0.5; 
-    background: rgba(0, 0, 0, 0.2);
-    border-left-color: #359e48;
-    color: rgba(238, 100, 180, 0.853); /* Clarea o texto mesmo com o pai sendo white */
 }

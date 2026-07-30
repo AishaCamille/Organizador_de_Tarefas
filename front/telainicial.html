@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="telainicial.css">
+    <link rel="stylesheet" href="telainicialTarefas.css">
+    <link rel="stylesheet" href="telainicialTarefasConcluidas.css">
 </head>
 
 <body>
@@ -51,13 +53,25 @@
                     <!--terefas adc recentemente, colocar nivel de prioridade e se ja foi 
                     concluida.
                     adc tb animação de riscar a tarefa quando for completada-->
-                    <ul id="listaDeTarefas"></ul>
+                    <ul id="listaDeTarefas"></ul> 
                 </div>
 
             </section>
 
             <section class="pagina TarefasConcluidas"> <!--1-->
-                
+                <div class="titulotarefasConcluidasDiv">
+                    <h3 class="titulotarefasConcluidas" >Tarefas Completadas!</h3>
+                </div>
+                <div class="layout-concluidas">
+                    <div class="tarefaspendentes">
+                        <!--lista das tarefas concluidas-->
+                        <ul id="listaConcluidas"></ul>
+                    </div>
+                    <!--gif-->
+                    <div class="container-gif">
+                        <img src="https://media.tenor.com/_hUq1BSUsiMAAAAM/cat-cute.gif" alt="Gatinho comemorando" class="gif-comemorativo">
+                    </div>
+                </div>
             </section>
 
             <section class="pagina Prioridades"> <!--2-->

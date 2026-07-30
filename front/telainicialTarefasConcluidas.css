@@ -1,0 +1,85 @@
+.TarefasConcluidas{
+    background:#fddef4;
+}
+#listaConcluidas {
+     margin-top: 40px;
+
+    counter-reset: tarefasConcluidas;
+    padding: 0;
+    list-style: none;
+}
+
+
+/* Modificação para que as tarefas concluídas mantenham estilos organizados na outra tela */
+#listaConcluidas .item-tarefa {
+ background: rgba(255, 3, 192, 0.2);
+    color: rgba(36, 79, 25, 0.7);
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    border-left: 5px solid #44c05b;
+    width: 100%;
+    display: flex;
+    cursor: default;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+#listaConcluidas .item-tarefa::before{
+    counter-increment: tarefasConcluidas;/**soma +1 a cada item*/
+    content: counter(tarefasConcluidas) ". ";/*exibe numero seguido de um ponto*/
+    font-weight: bold;
+    color: #359e48;
+    margin-right: 10px;/*espaço entre o numero e o texto da tarefa*/
+    font-family: Arial, Helvetica, sans-serif;
+}
+.titulotarefasConcluidas{
+    color: #359e48;
+    margin-top: 20px; 
+    text-align: center;
+    margin-bottom: 20px;
+}
+.titulotarefasConcluidasDiv{
+ background: rgb(181, 253, 171);
+}
+.layout-concluidas{
+   
+    display: flex;
+    width: 100%;
+    max-width: 1200px; /* Limita a largura máxima no computador para não espalhar muito */
+    margin: 0 auto;    /* Centraliza o bloco na tela */
+    padding: 0 30px;
+    gap: 40px;         /* Espaço horizontal entre a lista e o GIF */
+    align-items: flex-start; /* Alinha o topo dos dois elementos */
+}
+/* Ajuste na largura da lista de tarefas completadas */
+.layout-concluidas .tarefaspendentes {
+    flex: 2;          /* Ocupa 2/3 do espaço disponível */
+    margin-left: 0;   /* Reseta a margem antiga para alinhar pelo layout flex */
+    margin-top: 0;
+}
+
+/* Container do GIF */
+.container-gif {
+    flex: 1;          /* Ocupa 1/3 do espaço disponível */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+/* O segredo da responsividade do GIF */
+.gif-comemorativo {
+    width: 100%;      /* Faz o GIF ocupar todo o espaço do container dele */
+    max-width: 400px; /* Impede o GIF de ficar gigante em telas muito grandes */
+    height: auto;     /* Mantém a proporção correta para não distorcer */
+    border-radius: 15px; /* Deixa as bordas arredondadas combinando com seu estilo */
+}
+
+/* Ajustes finos para celulares pequenos */
+@media (max-width: 480px) {
+    .layout-concluidas {
+        gap: 15px;    /* Diminui o espaço entre eles no celular */
+        padding: 0 15px;
+    }
+}
