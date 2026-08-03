@@ -1,7 +1,7 @@
 
 .conteudotarefas{
     margin-top: 25px;
-    margin-left: 20px;
+    width: 70%;
 }
 
 .titulotarefas{
@@ -96,3 +96,56 @@
     background-color: #237b47;
 }
 
+/* Permite rolagem vertical apenas na página de tarefas caso haja muitas tarefas */
+.pagina.Tarefa {
+    overflow-y: auto;
+    padding-bottom: 50px;
+}
+
+/* Container que segura as 4 caixas organizadas por ordem de importância */
+.container-prioridades {
+    width: 50%;
+    margin: 20px auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.caixa-prioridade {
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 12px;
+    padding: 15px;
+    margin: 2px 2px 2px 2px;
+}
+
+.titulo-prioridade {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Estilização dos títulos de cada caixa */
+.urgente .titulo-prioridade { color: #c41351; }
+.alta .titulo-prioridade { color: #d83476; }
+.media .titulo-prioridade { color: #f17bb2; }
+.baixa .titulo-prioridade { color: #ffa3ae; }
+
+.caixa-prioridade ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Etiqueta (Badge) da prioridade que desce ao lado da tarefa */
+.badge-prioridade {
+    font-size: 12px;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 6px;
+    color: white;
+    margin-right: 10px;
+    font-family: 'Poppins', sans-serif;
+}

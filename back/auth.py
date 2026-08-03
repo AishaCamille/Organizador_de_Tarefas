@@ -113,6 +113,14 @@ def logar_usuario():
         if cursor: cursor.close()
         if conn: conn.close()
 
+
+#para topicos
+@app.route('/topicos', methods=['POST'])
+def cadastro_topicos():
+    dados = request.get_json()
+
+    
+
 if __name__ =='__main__':
     #roda servidor n porta
     app.run(debug=True, port=5501)

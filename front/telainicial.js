@@ -22,83 +22,89 @@ arrowLeft.addEventListener("click", () => {
 });
 
 //lista de tarefas, e manda para tarefas concluidas
-//caputurar os elemntos do front
+// Captura dos elementos do front
 const inputTarefa = document.getElementById("tarefa");
-const listaDeTarefas = document.getElementById("listaDeTarefas");
-const listaConcluidas = document.getElementById("listaConcluidas");//lista para a pag de concluidas
+const selectPrioridade = document.getElementById("prioridade");
+const listaConcluidas = document.getElementById("listaConcluidas");
 
+// Mapeamento das listas por prioridade
+const listasPrioridades = {
+    "Urgente": document.getElementById("listaUrgente"),
+    "Alta": document.getElementById("listaAlta"),
+    "Média": document.getElementById("listaMedia"),
+    "Baixa": document.getElementById("listaBaixa")
+};
 
-//event listener quando usuario apertar o enter no input
+// Event listener quando o usuário apertar Enter no input
 inputTarefa.addEventListener("keypress", function(event) {
-    //verificar se a tecla apertado foi o enter
     if (event.key == "Enter"){
-        const textoTarefa = inputTarefa.value.trim() //remove espaço do texto
+        const textoTarefa = inputTarefa.value.trim();
+        const prioridadeEscolhida = selectPrioridade.value;
 
         if (textoTarefa !== ""){
-            criarNovaTarefa(textoTarefa);
-            inputTarefa.value = ""; //limpar o input
+            criarNovaTarefa(textoTarefa, prioridadeEscolhida);
+            inputTarefa.value = ""; // limpa o input
         }
     }
 });
-// cria e exibe a tarefa com o botão de iniciar e contador
-function criarNovaTarefa(texto){
 
-    //container que alinha a tarefa e os controles lado a lado
+// Cria e exibe a tarefa na caixa da prioridade correspondente
+function criarNovaTarefa(texto, prioridade){
+
+    // Container que alinha a tarefa, etiqueta e os controles
     const containerTarefa = document.createElement("div");
     containerTarefa.classList.add("grupo-tarefa");
 
-    //cria elemento de lista
+    // Elemento de lista
     const novoItem = document.createElement("li");
     novoItem.classList.add("item-tarefa");
     novoItem.innerText = texto;
     containerTarefa.appendChild(novoItem);
-
-    //display temporizador
-    // CORREÇÃO 1: Mudado de textoSpan para tempSpan para bater com o restante do código
+    // Display temporizador
     const tempSpan = document.createElement("span");
     tempSpan.classList.add("tempo-tarefa");
     tempSpan.innerText = "00:00";
     containerTarefa.appendChild(tempSpan);
 
-    //botão que inicia a tarefa
+    // Botão que inicia a tarefa
     const btnIniciar = document.createElement("button");
     btnIniciar.classList.add("btn-iniciar");
     btnIniciar.innerText = "Iniciar";
     containerTarefa.appendChild(btnIniciar);
 
-    //variaveis para controlar o tempo da tarefa
+    // Variáveis para controlar o tempo da tarefa
     let segundos = 0;
     let cronometro = null;
     let rodando = false;
     let timeoutConclusao = null;
 
-    //logica botão iniciar/pausar
+    // Lógica botão iniciar/pausar
     btnIniciar.addEventListener("click", function(event) {
-        event.stopPropagation(); //para impedir o clique de ativar a conclusão da tarefa
+        event.stopPropagation(); // Impede o clique de ativar a conclusão
 
         if (!rodando){
             rodando = true;
             btnIniciar.innerText = "Pausar";
-            btnIniciar.style.backgroundColor = "#ff6b6b"; // cor do botão quando estiver rodando
+            btnIniciar.style.backgroundColor = "#ed1782";
 
-            // inicia contagem dos segundos
             cronometro = setInterval(() =>{
                 segundos++;
                 let min = Math.floor(segundos/60).toString().padStart(2, '0');
                 let seg = (segundos % 60).toString().padStart(2, '0');
                 tempSpan.innerText = ` (${min}:${seg})`;
             }, 1000);
-        }else{
-            // pausa o tempo se clicado novamente
+        } else {
             rodando = false;
             btnIniciar.innerText = "Retomar";
-            btnIniciar.style.backgroundColor = "#218b29";
+            btnIniciar.style.backgroundColor = "#41e16f";
             clearInterval(cronometro);
         }
     });
 
+    // Identifica qual a lista destino com base na prioridade
+    const listaAlvo = listasPrioridades[prioridade] || listasPrioridades["Média"];
 
-    //risca para concluir a tarefa quando clicada
+    // Risca para concluir a tarefa quando clicada
     novoItem.addEventListener("click", function() {
         const jaConcluida = novoItem.classList.toggle("concluida");
 
@@ -106,25 +112,23 @@ function criarNovaTarefa(texto){
             clearInterval(cronometro);
             rodando = false;
 
-            //esconde botões q estão do lado
             btnIniciar.style.display = "none";
+            //badgePrioridade.style.display = "none";
 
-            //exibe o tempo gasto congelado por 5 segundos antes de sumir
             let min = Math.floor(segundos / 60).toString().padStart(2, '0');
             let seg = (segundos % 60).toString().padStart(2, '0');
             tempSpan.innerText = `Gastou: ${min}:${seg}`;
         
-            // Adicionado "timeoutConclusao =" para possibilitar o cancelamento se desmarcado
             timeoutConclusao = setTimeout(() => {
-                listaDeTarefas.removeChild(containerTarefa);//remove de pendentes
-                containerTarefa.removeChild(novoItem);// Remove o <li> de dentro do container para limpar completamente
-               novoItem.classList.remove("concluida");
-                listaConcluidas.appendChild(novoItem); //adc na pag de concluidas
+                listaAlvo.removeChild(containerTarefa); // Remove da caixa de pendentes específica
+                containerTarefa.removeChild(novoItem);  // Limpa o li
+                novoItem.classList.remove("concluida");
+                listaConcluidas.appendChild(novoItem);   // Envia para tarefas concluídas
             }, 5000);
-        }else{
-            // Se desmarcar antes dos 5 segundos, cancela o envio e restaura os controles
+        } else {
             clearTimeout(timeoutConclusao); 
             btnIniciar.style.display = "inline-block"; 
+            //badgePrioridade.style.display = "inline-block";
             btnIniciar.innerText = "Iniciar";
             btnIniciar.style.backgroundColor = ""; 
             segundos = 0; 
@@ -132,6 +136,6 @@ function criarNovaTarefa(texto){
         }
     });
     
-    // Adiciona o CONTAINER na lista com o li, timer e botão dentro e não apenas o li isolado
-    listaDeTarefas.appendChild(containerTarefa);
+    // Adiciona o container na lista da prioridade escolhida
+    listaAlvo.appendChild(containerTarefa);
 }

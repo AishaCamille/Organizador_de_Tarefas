@@ -24,11 +24,10 @@
             <ul>
                 <li><a href="#" onclick="mudarPagina(0)">Tarefas</a></li>
                 <li><a href="#" onclick="mudarPagina(1)">Tarefas Concluídas</a></li>
-                <li><a href="#" onclick="mudarPagina(2)">Prioridades</a></li>
-                <li><a href="#" onclick="mudarPagina(3)">Tempo nas tarefas</a></li>
-                <li><a href="#" onclick="mudarPagina(4)">Ranking</a></li>
-                <li><a href="#" onclick="mudarPagina(5)">Pomodoro</a></li>
-                <li><a href="#" onclick="mudarPagina(6)">Perfil</a></li>
+                <li><a href="#" onclick="mudarPagina(2)">Tempo nas tarefas</a></li>
+                <li><a href="#" onclick="mudarPagina(3)">Ranking</a></li>
+                <li><a href="#" onclick="mudarPagina(4)">Pomodoro</a></li>
+                <li><a href="#" onclick="mudarPagina(5)">Perfil</a></li>
             </ul>
         </div>
 
@@ -44,17 +43,46 @@
                 <h3 class="titulotarefas">Aqui estão estão suas tarefas Pendentes!</h3>
                 <div class="TarefasAdc">
                     <div class="conteudotarefas">
-                    <label class="textolabel" for="tarefa">Tarefas para hoje?</label>
-                    <input type="text" class="tarefa" id="tarefa">
-                    
+                        <label class="textolabel" for="tarefa">Tarefas para hoje?</label>
+                        <input type="text" class="tarefa" id="tarefa">
+
+                        
+                    </div>
+                    <div class="form_floarting">
+                        <select name="prioridade" id="prioridade" class="seletor">
+                            <option value="Urgente">Urgente</option>
+                            <option value="Alta">Alta</option>
+                            <option value="Média" selected>Média</option>
+                            <option value="Baixa">Baixa</option>
+                        </select>
                     </div>
                 </div>
-                <div class="tarefaspendentes">
-                    <!--terefas adc recentemente, colocar nivel de prioridade e se ja foi 
-                    concluida.
-                    adc tb animação de riscar a tarefa quando for completada-->
-                    <ul id="listaDeTarefas"></ul> 
-                </div>
+                <!--area das prioridades-->
+                <div class="container_prioridade">
+
+                    <!-- Caixa Urgente -->
+                    <div class="caixa-prioridade urgente">
+                        <h4 class="titulo-prioridade">Urgente</h4>
+                        <ul id="listaUrgente"></ul>
+                    </div>
+
+                    <!-- Caixa Alta -->
+                    <div class="caixa-prioridade alta">
+                        <h4 class="titulo-prioridade">Alta</h4>
+                        <ul id="listaAlta"></ul>
+                    </div>
+
+                    <!-- Caixa Média -->
+                    <div class="caixa-prioridade media">
+                        <h4 class="titulo-prioridade">Média</h4>
+                        <ul id="listaMedia"></ul>
+                    </div>
+
+                    <!-- Caixa Baixa -->
+                    <div class="caixa-prioridade baixa">
+                        <h4 class="titulo-prioridade">Baixa</h4>
+                        <ul id="listaBaixa"></ul>
+                    </div>
 
             </section>
 
@@ -74,9 +102,6 @@
                 </div>
             </section>
 
-            <section class="pagina Prioridades"> <!--2-->
-                
-            </section>
 
             <section class="pagina TempoTarefas"> <!--3-->
                 
