@@ -129,48 +129,57 @@
                 
             </section>
             
-            <section class="pagina Pomodoro"> <!--5-->
+           <section class="pagina Pomodoro"> <!--5-->
                 <div class="tituloPomo">
-                    <h3>Pomodor</h3>
+                    <h3>Pomodoro</h3>
                     <i class="fa-regular fa-clock"></i>
                 </div>
-              
+
                 <div class="linha"></div>
+
                 <div class="container-pomodoro">
-                <!-- O Relógio Redondo -->
-                <div class="relogio-pomodoro">
-                    <div class="ponto-central"></div>
-                    <div class="ponteiro ponteiro-hora" id="ponteiroHora"></div>
-                    <div class="ponteiro ponteiro-minuto" id="ponteiroMinuto"></div>
-                    
-                    <!-- Números do Relógio -->
-                    <span class="numero num-12">12</span>
-                    <span class="numero num-3">3</span>
-                    <span class="numero num-6">6</span>
-                    <span class="numero num-9">9</span>
-                </div>
+                    <!-- Indicador de Status do Modo -->
+                    <div id="statusPomodoro" class="status-pomodoro foco"> Foco</div>
 
-                <!-- Display Digital Auxiliar e Controles -->
-                <div class="controles-pomodoro">
-                    <div class="tempo-digital" id="displayDigital">00:00:00</div>
-                    
-                    <div class="inputs-tempo">
-                        <input type="number" id="inputHoras" min="0" max="12" placeholder="Horas" value="0">
-                        <input type="number" id="inputMinutos" min="0" max="59" placeholder="Min" value="25">
+                    <!-- O Relógio Redondo Mantido -->
+                    <div class="relogio-pomodoro">
+                        <div class="ponto-central"></div>
+                        <div class="ponteiro ponteiro-hora" id="ponteiroHora"></div>
+                        <div class="ponteiro ponteiro-minuto" id="ponteiroMinuto"></div>
+                        
+                        <!-- Números do Relógio -->
+                        <span class="numero num-12">12</span>
+                        <span class="numero num-3">3</span>
+                        <span class="numero num-6">6</span>
+                        <span class="numero num-9">9</span>
                     </div>
 
-                    <div class="botoes-pomodoro">
-                        <button id="btnStartPomodoro">Iniciar</button>
-                        <button id="btnResetPomodoro">Resetar</button>
+                    <!-- Display Digital Auxiliar e Controles -->
+                    <div class="controles-pomodoro">
+                        <div class="tempo-digital" id="displayDigital">25:00</div>
+                        
+                        <!-- Inputs para o usuário configurar Foco e Descanso em Minutos -->
+                        <div class="inputs-tempo">
+                            <div class="campo-input">
+                                <label for="inputFoco">Foco (min)</label>
+                                <input type="number" id="inputFoco" min="1" max="120" value="25">
+                            </div>
+                            <div class="campo-input">
+                                <label for="inputDescanso">Descanso (min)</label>
+                                <input type="number" id="inputDescanso" min="1" max="60" value="5">
+                            </div>
+                        </div>
+
+                        <div class="botoes-pomodoro">
+                            <button id="btnStartPomodoro">Iniciar</button>
+                            <button id="btnResetPomodoro">Resetar</button>
+                        </div>
                     </div>
                 </div>
-            </div>
             </section>
 
             <section class="pagina Perfil"> <!--6-->
-                   <h1>Testando Ícones:</h1>
-    
-  
+               
             </section>
             
 

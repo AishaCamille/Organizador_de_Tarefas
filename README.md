@@ -21,18 +21,17 @@ O projeto adota uma arquitetura limpa dividindo as responsabilidades entre Front
 *   [x] **Interface Responsiva:** Navbar superior para telas de computador que se transforma em um menu lateral (sidebar) fluido em formato de três pontinhos para dispositivos móveis.
 *   [x] **Sistema de Cadastro Seguro:** Criação de novos usuários com validação de dados e prevenção de e-mails duplicados diretamente no banco de dados.
 *   [x] **Sistema de Autenticação (Login):** Validação segura de credenciais descriptografando hashes de senha salvos no PostgreSQL e persistência básica de sessão local (`localStorage`).
-
----
+*   [x] **Cadastro de tarefas:** Salvas no banco e localstorage.
+*   [x] **Timer tarefas:** Para saber quanto tempo levou para aquela tarefa
+*   [x] **Timer Pomodoro:** Mini temporizador para ciclos pomodoros.
+*   [x] **Lista de tarefas por tempo:** Lista de tarefas organizadar do menor para maior tempo
+*   [x] **Cadastro de tarefas por Nivel de Urgencia:** Lista das tarefas organizadas de maior urgencia para menor.
+*   [x] **Tarefas completadas:** Registro de tarefas completadas por ordem de finalização.
 
 ## 🗺️ Roadmap de Desenvolvimento (Próximas Etapas)
 
 O projeto está em constante evolução. Estas são as funcionalidades planejadas para as próximas versões:
 
-### 📥 Núcleo de Tarefas
-*   **Módulo de Tópicos e Tarefas:** Criação da interface gráfica e das rotas de backend para que o usuário possa categorizar suas matérias ou áreas e adicionar suas respectivas tarefas diárias vinculadas ao seu perfil.
-
-### ⏱️ Produtividade e Foco
-*   **Temporizador Pomodoro Integrado:** Um cronômetro inteligente para auxiliar nos estudos e trabalho focado, alternando automaticamente entre períodos de foco (25 min) e descanso (5 min).
 
 ### 📊 Painel de Estatísticas
 *   **Métricas de Foco:** Um dashboard visual exibindo gráficos estatísticos detalhados sobre o tempo que o usuário permaneceu focado em suas obrigações divididos por **Dia**, **Semana** e **Mês**.
