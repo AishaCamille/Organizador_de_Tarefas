@@ -35,7 +35,7 @@ async function cadastrarTarefaNoBanco(nomeTopico, prioridade) {
         //vericação se api retornou 201 criado com sucesso
         if(resposta.ok){
             console.log("Sucesso:", dadosResposta.mensagem);
-            return dadosResposta.id_topicos; // Retorna a resposta para quem chamou a função
+            return dadosResposta // Retorna a resposta para quem chamou a função
         } else {
             console.error("Erro da API:", dadosResposta.erro);
             alert(`Erro ao salvar: ${dadosResposta.erro}`);

@@ -142,9 +142,13 @@ def cadastro_topicos():
                 RETURNING id_topicos;
             """
         cursor.execute(comando_sql, (nome_topico, tempo_tarefa, prioridade, concluida, id_pessoa))
+        id_gerado = cursor.fetchone()[0]
         conn.commit() #salva alteração no banco
 
-        return jsonify({"mensagem":"tarefa cadastrada no banco"}), 201
+        return jsonify({
+            "mensagem": "tarefa cadastrada no banco",
+            "id_topicos": id_gerado
+        }), 201
     except Exception as e:
             if conn:conn.rollback()
             return jsonify({"erro": f"Erro interno: {str(e)}"}), 500
@@ -244,7 +248,7 @@ def atualizar_topico(id_topicos):
 
     try:
         conn = obter_conexao_banco()
-        cursor = cursor.cursor()
+        cursor = conn.cursor()
 
         #sql para update
         comando_sql = """

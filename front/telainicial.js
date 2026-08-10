@@ -8,12 +8,14 @@ async function mudarPagina(indice) {
 
     container.style.transform = `translateX(-${indice * 100}vw)`;
     if (indice == 1) {
+        listaConcluidas.innerHTML= ""; //limpar lista do local
         const tarefasConcluidas = await buscarTarefasConcluidas();
 
-        tarefasConcluidas.forEach(tarefa => {
-            listarTarefas(tarefa.nome_topico);
-        });
-
+        if (Array.isArray(tarefasConcluidas)){
+            tarefasConcluidas.forEach(tarefa => {
+                listarTarefas(tarefa.nome_topico);
+            });
+        }
     }
 
 }
@@ -55,7 +57,9 @@ inputTarefa.addEventListener("keypress", async function (event) {
 
             //se se sucesso, poe na tela
             if (resultado) {
-                criarNovaTarefa(textoTarefa, prioridadeEscolhida);
+                const idTopicos = resultado.id_topicos;
+                
+                criarNovaTarefa(textoTarefa, prioridadeEscolhida, idTopicos);
                 inputTarefa.value = ""; // limpa o input
             }
 
@@ -147,9 +151,10 @@ inputTarefa.addEventListener("keypress", async function (event) {
 
             timeoutConclusao = setTimeout(() => {
                 listaAlvo.removeChild(containerTarefa); // Remove da caixa de pendentes específica
-                containerTarefa.removeChild(novoItem);  // Limpa o li
-                novoItem.classList.remove("concluida");
-                listaConcluidas.appendChild(novoItem);   // Envia para tarefas concluídas
+                //containerTarefa.removeChild(novoItem);  // Limpa o li
+                //novoItem.classList.remove("concluida");
+                //listaConcluidas.appendChild(novoItem);   // Envia para tarefas concluídas
+                listarTarefas(texto);
             }, 5000);
         } else {//se a tarefa for desmarcada antes dos 5 segundos, desfaz a alteração
             clearTimeout(timeoutConclusao);
@@ -172,7 +177,9 @@ function listarTarefas(texto) {
     const novoItem = document.createElement("li");
     novoItem.classList.add("item-tarefa");
     novoItem.innerText = texto;
-    containerTarefa.appendChild(novoItem);
+    
+    // Adiciona direto na UL sem criar um container intermediário
+    listaConcluidas.appendChild(novoItem);
 }
 // Função que roda assim que a página é carregada
 document.addEventListener("DOMContentLoaded", async function () {
@@ -182,7 +189,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     // Desenha cada tarefa que veio do banco na tela
     tarefasDoBanco.forEach(tarefa => {
-        criarNovaTarefa(tarefa.nome_topico, tarefa.prioridade);
+        criarNovaTarefa(tarefa.nome_topico, tarefa.prioridade, tarefa.id_topicos);
     });
 
 
