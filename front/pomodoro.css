@@ -1,0 +1,207 @@
+.Pomodoro{
+    background:#aeffb5;
+}
+/* CONTAINER PRINCIPAL DO POMODORO */
+.container-pomodoro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+/* ESTRUTURA DO RELÓGIO REDONDO */
+.relogio-pomodoro {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 8px solid #377c3d;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ponto Central onde fixam os ponteiros */
+.ponto-central {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: #377c3d;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+/* PONTEIROS */
+.ponteiro {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom center;
+    border-radius: 4px;
+    transition: transform 0.5s cubic-bezier(0.4, 2.08, 0.55, 0.44);
+}
+
+/* Ponteiro de Hora (menor e mais grosso) */
+.ponteiro-hora {
+    width: 6px;
+    height: 60px;
+    background: #377c3d;
+    margin-left: -3px;
+    z-index: 8;
+}
+
+/* Ponteiro de Minuto (maior e mais fino) */
+.ponteiro-minuto {
+    width: 4px;
+    height: 90px;
+    background: #f4697b;
+    margin-left: -2px;
+    z-index: 9;
+}
+
+/* NÚMEROS DO RELÓGIO */
+.relogio-pomodoro .numero {
+    position: absolute;
+    font-weight: bold;
+    font-size: 18px;
+    color: #377c3d;
+    font-family: 'Poppins', sans-serif;
+}
+
+.num-12 { top: 10px; }
+.num-3  { right: 15px; }
+.num-6  { bottom: 10px; }
+.num-9  { left: 15px; }
+
+/* CONTROLES E INPUTS */
+.controles-pomodoro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.tempo-digital {
+    font-size: 32px;
+    font-weight: bold;
+    color: #ffffff;
+    font-family: monospace;
+}
+
+.inputs-tempo {
+    display: flex;
+    gap: 10px;
+}
+
+.inputs-tempo input {
+    width: 80px;
+    text-align: center;
+    padding: 5px;
+    font-size: 18px;
+    border-radius: 8px;
+    border: none;
+}
+
+.botoes-pomodoro button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: 0.2s;
+}
+
+#btnStartPomodoro {
+    background-color: #2ed573;
+    color: white;
+}
+
+#btnResetPomodoro {
+    background-color: #ff4757;
+    color: white;
+}
+
+.botoes-pomodoro button:hover {
+    transform: scale(1.05);
+}
+/* ESTILO DO POP-UP (TOAST) */
+.toast {
+    position: fixed;
+    top: 20px;
+    right: -350px; /* Escondido fora da tela por padrão */
+    background: #ffffff;
+    border-left: 6px solid #2ed573; /* Barra lateral verde */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    min-width: 280px;
+    z-index: 9999;
+    transition: right 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Animação suave mola */
+}
+
+/* Quando estiver ativo, desliza para dentro da tela */
+.toast.mostrar {
+    right: 20px;
+}
+
+.toast-conteudo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.toast-icone {
+    font-size: 26px;
+}
+
+.toast-mensagem strong {
+    display: block;
+    color: #377c3d;
+    font-size: 15px;
+}
+
+.toast-mensagem p {
+    margin: 2px 0 0 0;
+    color: #666;
+    font-size: 13px;
+}
+
+.toast-fechar {
+    background: none;
+    border: none;
+    font-size: 22px;
+    color: #999;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.toast-fechar:hover {
+    color: #333;
+}
+.tituloPomo{
+    display: flex;
+    height: 80px;
+    margin-bottom: 20px;
+    justify-content: center;
+    align-items: center;
+}
+.fa-regular{
+    color: rgb(20, 92, 35);
+    margin-top: 45px;
+    font-size: 27px;
+}
+h3{
+    
+    font-size: 50px;
+    
+}

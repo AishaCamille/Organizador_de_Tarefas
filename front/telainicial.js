@@ -17,6 +17,28 @@ async function mudarPagina(indice) {
             });
         }
     }
+    // NAVEGAÇÃO PARA A PÁGINA DE TEMPO (índice 2)
+    if (indice == 2) {
+        const listaTempoUl = document.getElementById("listaPorTempo");
+        listaTempoUl.innerHTML = ""; // Limpa para não duplicar ao clicar várias vezes
+
+        const tarefasPorTempo = await buscarTarefasPorTempo();
+
+        if (Array.isArray(tarefasPorTempo)) {
+            tarefasPorTempo.forEach(tarefa => {
+                const itemLi = document.createElement("li");
+                itemLi.classList.add("item-tarefa");
+                
+                // Exibe o nome da tarefa e o tempo ao lado de forma organizada
+                itemLi.innerHTML = `
+                    <span>${tarefa.nome_topico}</span>
+                    <strong style="color: #520539; font-size: 16px;"> ${tarefa.tempo_tarefa}</strong>
+                `;
+                
+                listaTempoUl.appendChild(itemLi);
+            });
+        }
+    }
 
 }
 

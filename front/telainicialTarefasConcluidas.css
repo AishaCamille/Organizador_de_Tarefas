@@ -3,7 +3,6 @@
 }
 #listaConcluidas {
      margin-top: 40px;
-
     counter-reset: tarefasConcluidas;
     padding: 0;
     list-style: none;
@@ -82,4 +81,9 @@
         gap: 15px;    /* Diminui o espaço entre eles no celular */
         padding: 0 15px;
     }
+}
+.linhaG{
+    background-color: rgb(64, 178, 49);
+    height: 6px;
+    color: green;
 }

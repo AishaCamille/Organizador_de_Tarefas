@@ -271,6 +271,45 @@ def atualizar_topico(id_topicos):
         if conn:
             conn.close()
 
+#rota para devolver uma lista ordenada das tarefas do menor tempo até o maior
+@app.route('/topicos/tempo/<int:id_pessoa>', methods=['GET'])
+def listar_por_tempo(id_pessoa):
+    conn= None
+    cursor = None
+
+    try:
+        conn = obter_conexao_banco()
+        cursor = conn.cursor()
+
+        #order by do sql para devolver a lista ordenada
+        comando_sql = """
+                SELECT id_topicos, nome_topico, tempo_tarefa, prioridade, concluida
+            FROM Topicos
+            WHERE id_pessoa = %s
+            ORDER BY tempo_tarefa ASC;
+        """
+        cursor.execute(comando_sql, (id_pessoa,))
+        linhas = cursor.fetchall()
+
+        tarefas_ordenadas = []
+        for linha in linhas:
+            tarefas_ordenadas.append({
+                
+                "id_topicos": linha[0],
+                "nome_topico": linha[1],
+                "tempo_tarefa": str(linha[2]), # Retorna no formato 'HH:MM:SS'
+                "prioridade": linha[3],
+                "concluida": linha[4]
+            })
+        return jsonify(tarefas_ordenadas), 200
+
+    except Exception as e:
+        return jsonify({"erro": f"Erro ao buscar tarefas por tempo: {str(e)}"}), 500
+
+    finally:
+        if cursor: cursor.close()
+        if conn: conn.close()
+
 if __name__ =='__main__':
     #roda servidor n porta
     app.run(debug=True, port=5501)

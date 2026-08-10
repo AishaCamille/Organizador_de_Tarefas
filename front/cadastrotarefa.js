@@ -119,3 +119,26 @@ async function atualizarTarefaNoBanco(idTopicos, concluida, tempoFormatada) {
     }
     
 }
+async function buscarTarefasPorTempo() {
+    const usuarioSalvo = localStorage.getItem("usuarioLogado");
+    if(!usuarioSalvo) return [];
+
+    const usuarioObj = JSON.parse(usuarioSalvo);
+    const idPessoa = usuarioObj.id;
+
+    try{
+        const resposta = await fetch(`${API_URL}/topicos/tempo/${idPessoa}`);
+        const tarefas = await resposta.json();
+
+        if (resposta.ok){
+            return tarefas;
+        }else {
+            console.error("erro da api: ", tarefas.erro);
+            return [];
+        }
+    }catch(erro){
+        console.error("Erro de conexão ao buscar por tempo: ", erro);
+        return [];
+    }
+    
+}

@@ -50,7 +50,7 @@ document.querySelector('form').addEventListener('submit', async (event) => {
         const resultado = await resposta.json();
 
         if (resposta.ok) {
-            alert(resultado.mensagem); 
+            //alert(resultado.mensagem); 
             window.location.href = "login.html"; // Redireciona para a tela de login
         } else {
             alert(resultado.erro); // Exibe mensagens de validação ou e-mail duplicado

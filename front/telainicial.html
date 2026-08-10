@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="telainicial.css">
     <link rel="stylesheet" href="telainicialTarefas.css">
     <link rel="stylesheet" href="telainicialTarefasConcluidas.css">
+    <link rel="stylesheet" href="telainicialTarefasTempo.css">
+      <link rel="stylesheet" href="pomodoro.css">
+      <script src="https://kit.fontawesome.com/e7558535d8.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -41,6 +44,7 @@
             
             <section class="pagina Tarefa"> <!--0-->
                 <h3 class="titulotarefas">Aqui estão estão suas tarefas Pendentes!</h3>
+                <div class="linha"></div>
                 <div class="TarefasAdc">
                     <div class="conteudotarefas">
                         <label class="textolabel" for="tarefa">Tarefas para hoje?</label>
@@ -90,6 +94,7 @@
                 <div class="titulotarefasConcluidasDiv">
                     <h3 class="titulotarefasConcluidas" >Tarefas Completadas!</h3>
                 </div>
+                <div class="linhaG"></div>
                 <div class="layout-concluidas">
                     <div class="tarefaspendentes">
                         <!--lista das tarefas concluidas-->
@@ -104,7 +109,20 @@
 
 
             <section class="pagina TempoTarefas"> <!--3-->
-                
+                <div class="titulotarefasDiv">
+                    <h3>Tarefas Por Tempo!</h3>
+                </div>
+                <div class="linha"></div>
+                <div class="tarefa-e-gato">
+                    <div class="tarefaspendentes" style="margin-top: 20px;">
+                        <ul id="listaPorTempo"></ul>
+                       
+                    </div>
+                     <!--gif-->
+                    <div class="container-gif">
+                            <img src="https://media.tenor.com/d-HSksPE2dMAAAAi/cat-dance-happy-dance-cat.gif" alt="Gatinho comemorando" class="gif-comemorativo">
+                        </div>
+                </div>
             </section>
 
             <section class="pagina Ranking"> <!--4-->
@@ -112,11 +130,47 @@
             </section>
             
             <section class="pagina Pomodoro"> <!--5-->
+                <div class="tituloPomo">
+                    <h3>Pomodor</h3>
+                    <i class="fa-regular fa-clock"></i>
+                </div>
               
+                <div class="linha"></div>
+                <div class="container-pomodoro">
+                <!-- O Relógio Redondo -->
+                <div class="relogio-pomodoro">
+                    <div class="ponto-central"></div>
+                    <div class="ponteiro ponteiro-hora" id="ponteiroHora"></div>
+                    <div class="ponteiro ponteiro-minuto" id="ponteiroMinuto"></div>
+                    
+                    <!-- Números do Relógio -->
+                    <span class="numero num-12">12</span>
+                    <span class="numero num-3">3</span>
+                    <span class="numero num-6">6</span>
+                    <span class="numero num-9">9</span>
+                </div>
+
+                <!-- Display Digital Auxiliar e Controles -->
+                <div class="controles-pomodoro">
+                    <div class="tempo-digital" id="displayDigital">00:00:00</div>
+                    
+                    <div class="inputs-tempo">
+                        <input type="number" id="inputHoras" min="0" max="12" placeholder="Horas" value="0">
+                        <input type="number" id="inputMinutos" min="0" max="59" placeholder="Min" value="25">
+                    </div>
+
+                    <div class="botoes-pomodoro">
+                        <button id="btnStartPomodoro">Iniciar</button>
+                        <button id="btnResetPomodoro">Resetar</button>
+                    </div>
+                </div>
+            </div>
             </section>
 
             <section class="pagina Perfil"> <!--6-->
-                
+                   <h1>Testando Ícones:</h1>
+    
+  
             </section>
             
 
@@ -124,8 +178,23 @@
         </div>
 
     </main>
+
+
+    <!-- Pop-up de Notificação Estilizado -->
+    <div id="toastNotification" class="toast">
+        <div class="toast-conteudo">
+            <span class="toast-icone">⏰</span>
+            <div class="toast-mensagem">
+                <strong>Tempo Esgotado!</strong>
+                <p>Seu ciclo do Pomodoro foi finalizado.</p>
+            </div>
+        </div>
+        <button class="toast-fechar" onclick="fecharToast()">&times;</button>
+    </div>
     <script src="cadastrotarefa.js"></script>
+    <script src="relogio.js"></script>
     <script src="telainicial.js"></script>
+    
    
 
 </body>
